@@ -6,14 +6,13 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.koin.core.context.startKoin
 import org.koin.sampleapp.di.testApp
+import org.koin.sampleapp.view.search.SearchEvent
 import org.koin.sampleapp.view.search.SearchUIModel
 import org.koin.sampleapp.view.search.SearchViewModel
-import org.koin.sampleapp.view.search.SearchEvent
-import org.koin.standalone.StandAloneContext.closeKoin
-import org.koin.standalone.StandAloneContext.startKoin
-import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mock
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
@@ -33,12 +32,11 @@ class SearchViewModelTest : KoinTest {
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        startKoin(testApp)
+        startKoin { testApp }
     }
 
     @After
     fun after() {
-        closeKoin()
     }
 
     @Test

@@ -6,15 +6,14 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.koin.core.context.startKoin
 import org.koin.sampleapp.di.testApp
 import org.koin.sampleapp.repository.WeatherRepository
 import org.koin.sampleapp.view.result.ResultSelectEvent
 import org.koin.sampleapp.view.result.ResultUIModel
 import org.koin.sampleapp.view.result.ResultViewModel
-import org.koin.standalone.StandAloneContext.closeKoin
-import org.koin.standalone.StandAloneContext.startKoin
-import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
@@ -35,12 +34,11 @@ class ResultViewModelTest : KoinTest {
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        startKoin(testApp)
+        startKoin { testApp }
     }
 
     @After
     fun after() {
-        closeKoin()
     }
 
     @Test

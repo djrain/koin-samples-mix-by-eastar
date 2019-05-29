@@ -4,12 +4,11 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.koin.core.context.startKoin
 import org.koin.sampleapp.di.testApp
 import org.koin.sampleapp.repository.WeatherRepository
-import org.koin.standalone.StandAloneContext.closeKoin
-import org.koin.standalone.StandAloneContext.startKoin
-import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.koin.test.inject
 
 class RepositoryTest : KoinTest {
 
@@ -17,12 +16,12 @@ class RepositoryTest : KoinTest {
 
     @Before
     fun before() {
-        startKoin(testApp)
+        startKoin { testApp }
     }
 
     @After
     fun after() {
-        closeKoin()
+//        closeKoin()
     }
 
     @Test

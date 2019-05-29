@@ -1,7 +1,7 @@
 package org.koin.sampleapp.view
 
-import android.arch.lifecycle.ViewModel
-import android.support.annotation.CallSuper
+import androidx.lifecycle.ViewModel
+import androidx.annotation.CallSuper
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 

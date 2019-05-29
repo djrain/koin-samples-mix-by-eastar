@@ -3,7 +3,8 @@ package org.koin.sampleapp.view.detail
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_weather_detail.*
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import org.koin.sampleapp.R
 import org.koin.sampleapp.model.DailyForecastModel
 import org.koin.sampleapp.util.ext.argument
@@ -22,7 +23,7 @@ class DetailActivity : AppCompatActivity() {
     private val now by argument<Date>(ARG_WEATHER_DATE)
     private val id by argument<String>(ARG_WEATHER_ITEM_ID)
 
-    val detailViewModel : DetailViewModel by viewModel { mapOf("id" to id) }
+    val detailViewModel by viewModel<DetailViewModel> { parametersOf(id) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

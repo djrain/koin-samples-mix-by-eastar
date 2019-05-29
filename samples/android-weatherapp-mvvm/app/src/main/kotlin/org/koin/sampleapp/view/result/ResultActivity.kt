@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import org.jetbrains.anko.startActivity
-import org.koin.android.architecture.ext.viewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.sampleapp.R
 import org.koin.sampleapp.util.ext.argument
 import org.koin.sampleapp.util.ext.withArguments

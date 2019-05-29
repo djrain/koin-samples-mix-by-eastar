@@ -1,8 +1,8 @@
 package org.koin.sampleapp.view.search
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
@@ -38,7 +38,7 @@ class SearchActivity : AppCompatActivity() {
             myModel.searchWeather(address)
         }
 
-        myModel.searchEvent.observe(this, android.arch.lifecycle.Observer { searchEvent ->
+        myModel.searchEvent.observe(this, androidx.lifecycle.Observer { searchEvent ->
             if (searchEvent != null) {
                 if (searchEvent.isLoading) {
                     displayProgress()
@@ -52,7 +52,7 @@ class SearchActivity : AppCompatActivity() {
                 }
             }
         })
-        myModel.uiData.observe(this, android.arch.lifecycle.Observer { uiData ->
+        myModel.uiData.observe(this, androidx.lifecycle.Observer { uiData ->
             if (uiData != null) {
                 val searchText = uiData.searchText
                 if (searchText != null) {

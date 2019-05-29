@@ -1,9 +1,9 @@
 package org.koin.sampleapp.view.result
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.sampleapp.R
 import org.koin.sampleapp.model.DailyForecastModel
 
-class ResultListFragment : Fragment() {
+class ResultListFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var weatherResultAdapter: ResultListAdapter
 
@@ -31,7 +31,7 @@ class ResultListFragment : Fragment() {
         Log.i(TAG, "myModel : $model")
 
         // Listen Weather list
-        model.uiData.observe(this, android.arch.lifecycle.Observer<ResultUIModel> {
+        model.uiData.observe(this, androidx.lifecycle.Observer<ResultUIModel> {
             if (it != null) {
                 val weatherList = it.list
                 if (weatherList != weatherResultAdapter.list && weatherList.isNotEmpty()) {
@@ -44,7 +44,7 @@ class ResultListFragment : Fragment() {
 
         // Bind onItemClicked with adapter
         weatherResultAdapter = ResultListAdapter(emptyList(), onItemClicked())
-        weatherList.layoutManager = LinearLayoutManager(context)
+        weatherList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         weatherList.adapter = weatherResultAdapter
 
         model.getWeatherList()

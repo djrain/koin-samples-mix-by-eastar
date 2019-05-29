@@ -1,6 +1,6 @@
 package org.koin.sampleapp.view.result
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import org.koin.sampleapp.model.DailyForecastModel
 import org.koin.sampleapp.repository.WeatherRepository
 import org.koin.sampleapp.util.rx.SchedulerProvider

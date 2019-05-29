@@ -1,7 +1,7 @@
 package org.koin.sampleapp.view.result
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import org.koin.sampleapp.view.Arguments.ARG_ADDRESS
 import org.koin.sampleapp.view.Arguments.ARG_WEATHER_DATE
 import java.util.*
 
-class ResultHeaderFragment : Fragment() {
+class ResultHeaderFragment : androidx.fragment.app.Fragment() {
 
     val TAG = javaClass.simpleName
 

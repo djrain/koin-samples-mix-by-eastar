@@ -1,7 +1,7 @@
 package org.koin.sampleapp.view
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import junit.framework.Assert
 import org.junit.After
 import org.junit.Before

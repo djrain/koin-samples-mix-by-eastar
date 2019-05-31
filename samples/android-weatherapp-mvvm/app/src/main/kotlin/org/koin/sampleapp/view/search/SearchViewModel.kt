@@ -2,8 +2,8 @@ package org.koin.sampleapp.view.search
 
 import androidx.lifecycle.MutableLiveData
 import org.koin.sampleapp.repository.WeatherRepository
-import org.koin.sampleapp.util.rx.SchedulerProvider
 import org.koin.sampleapp.util.ext.with
+import org.koin.sampleapp.util.rx.SchedulerProvider
 import org.koin.sampleapp.view.AbstractViewModel
 import org.koin.sampleapp.view.SingleLiveEvent
 
@@ -19,13 +19,8 @@ class SearchViewModel(private val weatherRepository: WeatherRepository, private 
 
             weatherRepository.searchWeather(address)
                     .with(scheduler)
-                    .subscribe(
-                            {
-                                searchEvent.postValue(SearchEvent(isSuccess = true))
-                            },
-                            { err ->
-                                searchEvent.postValue(SearchEvent(error = err))
-                            })
+                    .subscribe({ searchEvent.postValue(SearchEvent(isSuccess = true)) }
+                            , { searchEvent.postValue(SearchEvent(error = it)) })
         }
     }
 }
